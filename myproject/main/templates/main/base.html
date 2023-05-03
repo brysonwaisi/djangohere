@@ -50,8 +50,14 @@
         <div class="col-8">
           <h1 class="mt-2"> Breezy Site </h1>
           <hr class="mt-0 mb-4">
-          {% block content %} 
-          {% endblock %}
+          {% comment %} {% if user.is_authenticated %} {% endcomment %}
+                {% block content %} 
+                {% endblock %}
+          {% comment %} {% else %}
+                <p>Login<a href="/login">here</a></p>
+           {% endif %} {% endcomment %}
+
+           {% comment %} commented code shows how you can restrict page access before logging in {% endcomment %}
         </div>
       </div>
     </div>
